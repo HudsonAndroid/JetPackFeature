@@ -2,12 +2,15 @@ package com.hudson.jetpackfeature.databinding;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import com.hudson.jetpackfeature.R;
 import com.hudson.jetpackfeature.databinding.adapter.TypeOneAdapter;
 import com.hudson.jetpackfeature.databinding.adapter.TypeTwoAdapter;
 import com.hudson.jetpackfeature.databinding.adapter.UserAdapterRecyclerView;
+import com.hudson.jetpackfeature.databinding.entity.ImageData;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeOneData;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeTwoData;
 import com.hudson.jetpackfeature.databinding.entity.User;
@@ -29,8 +32,16 @@ public class BindingTestActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_binding_test);
         ActivityBindingTestBinding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_binding_test);
+        bindAdapterTest(binding);
 //        bindUserType(binding);
         bindUnknownTypeTwo(binding);
+    }
+
+    private void bindAdapterTest(ActivityBindingTestBinding binding){
+        ImageData imageData = new ImageData();
+        imageData.setImageUrl("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592741441500&di=5ce51f59cda30b5770dfcf741720b9bd&imgtype=0&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D1034079650%2C495529395%26fm%3D214%26gp%3D0.jpg");
+        imageData.setErrorDrawable(new ColorDrawable(Color.RED));
+        binding.setImageData(imageData);
     }
 
 
