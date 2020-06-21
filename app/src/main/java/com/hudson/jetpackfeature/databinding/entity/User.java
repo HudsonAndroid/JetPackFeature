@@ -39,4 +39,6 @@ public class User extends BaseObservable {
     public void onClickThisData(View view){
         Log.e(TAG, "you click the item  " + mName + ", "+ mAge);
     }
+
+
 }

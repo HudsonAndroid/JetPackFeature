@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.hudson.jetpackfeature.R;
 import com.hudson.jetpackfeature.databinding.adapter.TypeOneAdapter;
 import com.hudson.jetpackfeature.databinding.adapter.TypeTwoAdapter;
-import com.hudson.jetpackfeature.databinding.adapter.UserAdapter;
+import com.hudson.jetpackfeature.databinding.adapter.UserAdapterRecyclerView;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeOneData;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeTwoData;
 import com.hudson.jetpackfeature.databinding.entity.User;
@@ -59,7 +59,7 @@ public class BindingTestActivity extends AppCompatActivity {
     }
 
     private void bindUserType(ActivityBindingTestBinding binding){
-        final UserAdapter adapter = new UserAdapter();
+        final UserAdapterRecyclerView adapter = new UserAdapterRecyclerView();
         binding.rvContainer.setAdapter(adapter);
         fetchData().observe(this, new Observer<List<User>>() {
             @Override

@@ -18,7 +18,7 @@ import androidx.databinding.DataBindingUtil;
 /**
  * Created by Hudson on 2020/6/21.
  */
-public class UserAdapter extends BindingAdapter {
+public class UserAdapterRecyclerView extends RecyclerViewBindingAdapter {
     private final List<User> mUsers = new ArrayList<>();
 
     public void refresh(List<User> users){

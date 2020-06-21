@@ -7,5 +7,5 @@ import androidx.recyclerview.widget.RecyclerView;
 /**
  * Created by Hudson on 2020/6/21.
  */
-public abstract class BindingAdapter extends RecyclerView.Adapter<BindingHolder> {
+public abstract class RecyclerViewBindingAdapter extends RecyclerView.Adapter<BindingHolder> {
 }
