@@ -5,6 +5,10 @@
         <variable
             name="imageData"
             type="com.hudson.jetpackfeature.databinding.entity.ImageData" />
+
+        <variable
+            name="twoWayData"
+            type="com.hudson.jetpackfeature.databinding.entity.TwoWayData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,6 +30,18 @@
             android:minHeight="200dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <!--自定义绑定适配器情况下的双向绑定-->
+        <com.hudson.jetpackfeature.databinding.twoWayBind.MyTextView
+            android:id="@+id/tv_two_way"
+            android:minWidth="150dp"
+            android:minHeight="50dp"
+            android:background="#5f00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:content="@={twoWayData.content}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <!--通过layoutManager指定layoutManager-->
         <androidx.recyclerview.widget.RecyclerView

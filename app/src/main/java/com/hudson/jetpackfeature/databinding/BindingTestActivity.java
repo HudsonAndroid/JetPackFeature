@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.hudson.jetpackfeature.R;
 import com.hudson.jetpackfeature.databinding.adapter.TypeOneAdapter;
 import com.hudson.jetpackfeature.databinding.adapter.TypeTwoAdapter;
 import com.hudson.jetpackfeature.databinding.adapter.UserAdapterRecyclerView;
 import com.hudson.jetpackfeature.databinding.entity.ImageData;
+import com.hudson.jetpackfeature.databinding.entity.TwoWayData;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeOneData;
 import com.hudson.jetpackfeature.databinding.entity.UnknownTypeTwoData;
 import com.hudson.jetpackfeature.databinding.entity.User;
@@ -32,9 +34,20 @@ public class BindingTestActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_binding_test);
         ActivityBindingTestBinding binding = DataBindingUtil
                 .setContentView(this, R.layout.activity_binding_test);
-        bindAdapterTest(binding);
+//        bindAdapterTest(binding);
 //        bindUserType(binding);
-        bindUnknownTypeTwo(binding);
+//        bindUnknownTypeTwo(binding);
+        twoWayBindTest(binding);
+    }
+
+    private void twoWayBindTest(ActivityBindingTestBinding binding){
+        TwoWayData twoWayData = new TwoWayData();
+        binding.setTwoWayData(twoWayData);
+        twoWayData.setContent("this is from data content");
+        binding.executePendingBindings();
+        binding.tvTwoWay.setText("this is from view");
+        String content = twoWayData.getContent();
+        Log.e("hudson","修改后的内容是"+content);
     }
 
     private void bindAdapterTest(ActivityBindingTestBinding binding){
